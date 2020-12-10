@@ -1,15 +1,22 @@
-import { hello } from './../src';
+import { createConnection, Model, column } from '../src';
 
-describe('index', () => {
-  it('should greet the world', () => {
-    const actual = hello();
-
-    expect(actual).toBe('Hello, World!');
+describe('Titan ORM', () => {
+  createConnection({
+    client: 'pg',
+    connection: 'postgres://josh:@127.0.0.1:5432/defaultdb',
   });
 
-  it('should greet by name', () => {
-    const actual = hello('Moto');
+  it('should work', async () => {
+    class Example extends Model {
+      @column()
+      key: string;
 
-    expect(actual).toBe('Hello, Moto!');
+      @column()
+      value: string;
+    }
+
+    const result = await Example.query();
+
+    console.log(result);
   });
 });
