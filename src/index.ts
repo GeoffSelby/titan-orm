@@ -1,3 +1,3 @@
 export * from './connection';
-export * from './Model';
 export * from './decorators';
+export { BaseModel as Model } from './Model';

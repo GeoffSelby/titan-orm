@@ -15,8 +15,15 @@ describe('Titan ORM', () => {
       value: string;
     }
 
-    const result = await Example.query();
+    // const row = await Example.query();
+    // const row = await Example.create({ key: 'foo', value: 'bar' });
 
-    console.log(result);
+    // const row = new Example();
+    // row.fill({ key: 'foo', value: 'bar' });
+
+    const row = new Example();
+    row.key = 'bar';
+
+    console.log(row.key);
   });
 });
